@@ -36,7 +36,7 @@ export default function Home({
     fetchData();
   }, [page]);
 
-  console.log(data)
+  console.log(data);
 
   {isConnected ? console.log("MongoDB database connected") : console.log("MongoDB connection failed")}
 
@@ -59,8 +59,8 @@ export default function Home({
 
       <div className="test">
         <div>
-          <button onClick={() => decrement()}>Previous Page</button>
-          <button onClick={() => increment()}>Next Page</button>
+          <button className="modifyPage" onClick={() => decrement()}>Previous Page</button>
+          <button className="modifyPage" onClick={() => increment()}>Next Page</button>
           <h3>Page: {page}</h3>
         </div>
         <div className="container">
@@ -69,7 +69,7 @@ export default function Home({
             <Image src={item?.poster || "/1v41wj1k8rneqg3j67ct.png"} alt="" fill priority />
             <div className="desc">
               <div className="content">
-                <h1>{item?.fullplot || item?.plot || item?.title}</h1>
+                <h1 className="text">{item?.fullplot || item?.plot || item?.title}</h1>
               </div>
             </div>
           </div>
@@ -84,7 +84,7 @@ export default function Home({
           height: 98%;
           gap: 2ch;
           grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-          
+          background: linear-gradient(90deg, #1f5b8b 5.23%, #5a7faf 100%);
         }
 
         .movie {
@@ -124,6 +124,21 @@ export default function Home({
           display: inherit;
         }
 
+        .text {
+          color: white;
+        }
+
+        .modifyPage {
+          border: none;
+          margin-right: 1em;
+          width: 20%;
+          height: 5vh;
+          border-radius: 20px;
+          font-weight: bold;
+          border: 2px solid black;
+          cursor: pointer;
+          background:linear-gradient(93.71deg, #58b3b6 1.75%, rgb(81, 196, 116) 100%);
+        }
         
       `}</style>
 
